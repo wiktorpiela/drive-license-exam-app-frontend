@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="row">
+
+        <h1>home page</h1>
+
+        <div class="exam-header home-page-btns">
+            <button onclick="openInfoPopup()" class="btn exam-mode"><ion-icon name="reader-outline"></ion-icon>Egzamin teoretyczny</button>
+            <button onclick="openInfoPopup()" class="btn learning-mode"><ion-icon name="extension-puzzle-outline"></ion-icon>Tryb nauki</button>
+        </div>
+
+    
+        <div class="popup-info">
+
+            <h4>Informacja</h4>
+    
+            <p>Egzamin teoretyczny składa się z 32 pytań:</p>
+            <ul>
+                <li>20 pytań z wiedzy podstawowej, na które odpowiadasz <strong>TAK</strong> lub <strong>NIE</strong></li>
+                <li>12 pytań z wiedzy specjalistycznej dotyczącej zdawanej kategorii prawa jazdy, na które odpowiadasz wybierając odpowiedź <strong>A</strong>, <strong>B</strong> lub <strong>C</strong></li>
+            </ul>
+                    
+            <p>Poszczególne pytania posiadają wartość punktową uzależnioną od ich stopnia trudności. Część podstawowa zawiera:</p>
+            <ul>
+                <li>10 pytań za 3 punkty</li>
+                <li>6 pytań za 2 punkty</li>
+                <li>4 pytania za 1 punkt</li>
+            </ul>
+    
+            <p>Część specjalistyczna (na poszczególne kategorie) zawiera:</p>
+            <ul>
+                <li>6 pytań za 3 punkty</li>
+                <li>4 pytania za 2 punkty</li>
+                <li>2 pytania za 1 punkt</li>
+            </ul>
+    
+            <p>Ile masz czasu na udzielenie odpowiedzi?</p>
+            <ul>
+                <li>część podstawowa: 20 sekund na zapoznanie się z treścią pytania i 15 sekund na udzielenie odpowiedzi</li>
+                <li>część specjalistyczna: 50 sekund na zapoznanie się z pytaniem i udzielenie odpowiedzi</li>
+            </ul>
+    
+            <p>
+                Nieudzielenie odpowiedzi w wymaganym czasie lub udzielenie błędnej odpowiedzi, skutkuje nieotrzymaniem punktów za dane pytanie. 
+                Twoim zadaniem jest zdobycie co najmniej 68 z 74 możliwych do uzyskania punktów za poprawnie udzielone odpowiedzi.
+            </p>
+    
+            <a href="https://info-car.pl/new/prawo-jazdy/informacje-o-egzaminie-teoretycznym" target="_blank"><ion-icon name="globe-outline"></ion-icon>Źródło i więcej informacji</a>
+            
+            <select class="select-category" required>
+                <option value="" selected disabled>Wybierz kategorię</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+            </select>
+
+            <div class="exam-header">
+                <button class="confirm-start-exam btn">Rozpocznij</button>
+                <button onclick="closeInfoPopup()" class="btn">Wyjdź</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="homePageScript.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

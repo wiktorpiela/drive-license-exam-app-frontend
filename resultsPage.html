@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="row">
+        <div class="exam-header">
+
+            <div class="summary-info" onmousedown="return false" onselectstart="return false">
+    
+                <div class="exam-result">
+                    <p>Liczba uzyskanych punktów:</p>
+                    <p class="score"></p>
+                </div>
+        
+                <div class="exam-result">
+                    <p>Wynik egzaminu:</p>
+                    <p class="exam-result-verbatim"></p>
+                </div>
+        
+                <div class="exam-result">
+                    <p>Liczba poprawnych odpowiedzi:</p>
+                    <p class="correct-count-verbatim"></p>
+                </div>
+        
+                <div class="exam-result">
+                    <p>Liczba błędnych odpowiedzi:</p>
+                    <p class="wrong-count-verbatim"></p>
+                </div>
+        
+                <div class="exam-result">
+                    <p>Liczba pominiętych odpowiedzi:</p>
+                    <p class="skip-count-verbatim"></p>
+                </div>
+        
+            </div>
+    
+            <div class="summary-boxes-btns">
+                <div class="summary-boxes" onmousedown="return false" onselectstart="return false"></div>
+                <div class="exam-header">
+                    <button class="btn exit-btn">Wyjdź</button>
+                    <button class="btn try-again-btn">Spróbuj ponownie</button>
+                </div>
+            </div>
+        
+        </div>
+    
+        <div class="exam-header">
+    
+            <div class="result-left">
+                <img src="" class="question-media-img-result">
+    
+                <video controls loop class="question-media-video-result" autoplay disablepictureinpicture controlslist="nodownload">
+                    <source src="" type="video/mp4">
+                </video>
+        
+                <h4 class="question-content-txt" onmousedown="return false" onselectstart="return false"></h4>
+            </div>
+
+            <div class="result-right">
+
+                <div class="quest-score">
+                    <!-- 5% -->
+                    <p>Wartość punktowa</p>
+                    <p class="blue-box score-value"></p>
+                </div>
+
+                <div class="answers-content">
+                    <!-- 45% -->
+                    <div class="yn">
+                        <p class="yes answer-box">TAK</p>
+                        <p class="no answer-box">NIE</p>
+                    </div>
+    
+                    <div class="abc">
+                        <p class="a answer-box"></p>
+                        <p class="b answer-box"></p>
+                        <p class="c answer-box"></p>
+                    </div>
+                </div>
+
+                <div class="summary-info lgl-scource-div">
+                    <!-- 45% -->
+                    <p>Podstawa prawna</p>
+                    <p class="question-content-quest-lglsource"></p>
+                </div>
+
+  
+            </div>
+
+        </div>
+
+    </div>
+    <script src="resultsPageScript.js"></script>
+</body>
+</html>
