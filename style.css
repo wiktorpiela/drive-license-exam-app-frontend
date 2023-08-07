@@ -207,13 +207,11 @@ video::-webkit-media-controls-panel {
     position: absolute;
 }
 
-
 /* HOME PAGE */
 .home-page-header{
     text-align: center;
     margin: 5rem 0;
 }
-
 .select-category{
     width: 50%;
     text-align: center;
@@ -287,6 +285,12 @@ video::-webkit-media-controls-panel {
 .learning-mode{
     width: 40%;
 }
+
+
+
+
+
+
 
 /* RESULTS PAGE */
 .summary-info{

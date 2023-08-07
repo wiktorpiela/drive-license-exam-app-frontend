@@ -119,7 +119,7 @@ closeExamConfirm.addEventListener("click", () => {
 window.onload = (event) => {
 
     //display defualt picture at the beginning
-    mediaImg.src = "static/img/start.jpg"
+    mediaImg.src = "https://www.w3schools.com/html/img_chania.jpg"
 
     getQuestions(examUrl)
         .then((data) => {
@@ -183,7 +183,7 @@ window.onload = (event) => {
                 basicReadQuestTime--;
                 let progressWidth = basicReadQuestTime / 20 * 100
 
-                mediaImg.src = "static/img/start.jpg"
+                mediaImg.src = "https://www.w3schools.com/html/img_chania.jpg"
 
                 if (basicReadQuestTime < 0) {
 
@@ -196,7 +196,7 @@ window.onload = (event) => {
 
                     if (question.media.toLowerCase().slice(-4) === ".jpg") {
 
-                        mediaImg.src = "static/img/" + question.media
+                        mediaImg.src = "https://www.w3schools.com/html/img_chania.jpg"
 
                         //answer interval
                         let basicAnswerTime = 15;
@@ -288,7 +288,7 @@ window.onload = (event) => {
 
                     } else if (question.media === "") {
 
-                        mediaImg.src = "no_media.jpg"
+                        mediaImg.src = "https://www.w3schools.com/html/img_chania.jpg"
                     }
                 } else {
 
@@ -328,7 +328,7 @@ window.onload = (event) => {
                 mediaVideo.pause()
                 mediaVideo.currentTime = 0;
                 mediaImg.style.display = "flex"
-                mediaImg.src = "static/img/start.jpg"
+                mediaImg.src = "https://www.w3schools.com/html/img_chania.jpg"
                 mediaVideo.style.display = "none"
                 playingVideoInfo.innerHTML = ""
                 readTimeProgressBar.style.display = "flex"
@@ -399,7 +399,7 @@ window.onload = (event) => {
 
                                 if (question.media.toLowerCase().slice(-4) === ".jpg") {
 
-                                    mediaImg.src = "static/img/" + question.media
+                                    mediaImg.src = "https://www.w3schools.com/html/img_chania.jpg"
 
                                     //answer interval
                                     let basicAnswerTime = 15;
@@ -441,7 +441,7 @@ window.onload = (event) => {
                                     mediaImg.style.display = "none"
 
                                     mediaVideo.style.display = "flex"
-                                    mediaVideo.src = "static/video/" + question.media.replace("wmv", "mp4")
+                                    mediaVideo.src = "https://www.w3schools.com/html/img_chania.jpg"
                                     mediaVideo.controlsList = "noplaybackrate nofullscreen";
                                     mediaVideo.disablePictureInPicture = true;
                                     mediaVideo.muted = true;
@@ -511,9 +511,9 @@ window.onload = (event) => {
                         readTimeBar.style.width = "100%"
 
                         if (question.media === "") {
-                            mediaImg.src = "static/img/no_media.jpg"
+                            mediaImg.src = "https://www.w3schools.com/html/img_chania.jpg"
                         } else {
-                            mediaImg.src = "static/img/" + question.media
+                            mediaImg.src = "https://www.w3schools.com/html/img_chania.jpg"
                         }
 
                         let specQuestTime = 50;
