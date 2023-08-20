@@ -1,9 +1,14 @@
 const score = document.querySelector(".score")
+const score2 = document.querySelector(".score2")
 const summaryBoxes = document.querySelector(".summary-boxes")
 const examResultVerbatim = document.querySelector(".exam-result-verbatim")
+const examResultVerbatim2 = document.querySelector(".exam-result-verbatim2")
 const correctCountVerbatim = document.querySelector(".correct-count-verbatim")
+const correctCountVerbatim2 = document.querySelector(".correct-count-verbatim2")
 const wrongCountVerbatim = document.querySelector(".wrong-count-verbatim")
+const wrongCountVerbatim2 = document.querySelector(".wrong-count-verbatim2")
 const skipCountVerbatim = document.querySelector(".skip-count-verbatim")
+const skipCountVerbatim2 = document.querySelector(".skip-count-verbatim2")
 
 //question elements hoisting
 const mediaImg = document.querySelector(".question-media-img-result")
@@ -17,6 +22,26 @@ const NO = document.querySelector(".no")
 //navi elements
 const backToHomePage = document.querySelector(".exit-btn")
 const examTryAgain = document.querySelector(".try-again-btn")
+
+//popup elements ----
+const popupModal = document.getElementById("popupResults")
+
+function displayPopupResults(){
+    popupModal.classList.add("display-results-popup")
+}
+
+function closePopupResults(){
+    popupModal.classList.remove("display-results-popup")
+}
+// -----
+
+function openLglPopup(){
+    lglPopup.classList.add("open-lgl-popup")
+}
+
+function closeLglPopup(){
+    lglPopup.classList.remove("open-lgl-popup")
+}
 
 //function
 function createSummaryBoxes(parentDiv, questObject, i) {
@@ -45,20 +70,20 @@ function createSummaryBoxes(parentDiv, questObject, i) {
         //question media handling
         if (questObject.media.toLowerCase().slice(-4) === ".jpg") {
 
-            mediaImg.style.display = "flex"
+            mediaImg.style.display = "block"
             mediaVideo.style.display = "none"
             mediaImg.src = "static/img/" + questObject.media
 
         } else if (questObject.media.toLowerCase().slice(-4) === ".wmv") {
 
             mediaImg.style.display = "none"
-            mediaVideo.style.display = "flex"
+            mediaVideo.style.display = "block"
             mediaVideo.src = "static/video/" + questObject.media.replace("wmv", "mp4")
             mediaVideo.controlsList = "noplaybackrate nodownload"
 
         } else {
 
-            mediaImg.style.display = "flex"
+            mediaImg.style.display = "block"
             mediaVideo.style.display = "none"
             mediaImg.src = "static/img/no_media.jpg"
 
@@ -131,16 +156,19 @@ function createSummaryBoxes(parentDiv, questObject, i) {
         }
 
         const questionContentText = document.querySelector(".question-content-txt")
-        const questionLegalSource = document.querySelector(".question-content-quest-lglsource")
-        const lglDiv = document.querySelector(".lgl-scource-div")
+        const questionLegalSource = document.querySelector(".lgl-info-txt")
+        const lglDiv = document.querySelector(".lgl-info")
+        const lglPopup = document.querySelector(".lgl-info-popup")
         const questScoreDiv = document.querySelector(".quest-score")
         const scoreValue = document.querySelector(".score-value")
 
         questScoreDiv.style.display = "flex"
-        lglDiv.style.display = "block"
+        lglDiv.classList.add("display-lgl-info")
         questionContentText.innerHTML = questObject.quest_txt
         questionLegalSource.innerHTML = questObject.legal_source
         scoreValue.innerHTML = questObject.score
+
+
 
     })
 
@@ -181,17 +209,28 @@ window.onload = (event) => {
     }
 
     score.innerHTML = userScore + "/74"
+    score2.innerHTML = userScore + "/74"
 
     correctCountVerbatim.innerHTML = correctCount
+    correctCountVerbatim2.innerHTML = correctCount
     wrongCountVerbatim.innerHTML = wrongCount
+    wrongCountVerbatim2.innerHTML = wrongCount
     skipCountVerbatim.innerHTML = skipCount
+    skipCountVerbatim2.innerHTML = skipCount
 
     if (userScore >= 68) {
         examResultVerbatim.style.color = "green"
         examResultVerbatim.innerHTML = "POZYTYWNY"
+
+        examResultVerbatim2.style.color = "green"
+        examResultVerbatim2.innerHTML = "POZYTYWNY"
+
     } else {
         examResultVerbatim.style.color = "red"
         examResultVerbatim.innerHTML = "NEGATYWNY"
+
+        examResultVerbatim2.style.color = "red"
+        examResultVerbatim2.innerHTML = "NEGATYWNY"
     }
 }
 

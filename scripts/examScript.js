@@ -1,5 +1,5 @@
 const categoryName = sessionStorage.getItem("categoryName");
-const examUrl = `https://drive-license-exam-app.up.railway.app/exam-questions/${categoryName}`
+const examUrl = `http://127.0.0.1:8000/exam-questions/${categoryName}`
 const nextQuestion = document.querySelector(".next-question")
 const skipReading = document.querySelector(".skip-reading")
 const closeExamConfirm = document.querySelector(".close-exam-confirm")
@@ -25,6 +25,9 @@ playingVideoInfo.classList.add("video-playing")
 
 let answersResponse
 let answers
+
+//media source path
+const mediaSrc = "https://res.cloudinary.com/dzblavrli/image/upload/drivelicense/"
 
 //jeżeli nie ma danych
 if (categoryName === null) {
@@ -119,7 +122,7 @@ closeExamConfirm.addEventListener("click", () => {
 window.onload = (event) => {
 
     //display defualt picture at the beginning
-    mediaImg.src = "https://www.w3schools.com/html/img_chania.jpg"
+    mediaImg.src = mediaSrc + "img/start.jpg"
 
     getQuestions(examUrl)
         .then((data) => {
@@ -170,7 +173,7 @@ window.onload = (event) => {
             //only basic question here is possible ----
             basicQuestCount++;
 
-            skipReading.style.display = "flex"
+            skipReading.style.display = "block" //flex
 
             skipReading.addEventListener("click", () => {
                 basicReadQuestTime = -1;
@@ -183,7 +186,7 @@ window.onload = (event) => {
                 basicReadQuestTime--;
                 let progressWidth = basicReadQuestTime / 20 * 100
 
-                mediaImg.src = "https://www.w3schools.com/html/img_chania.jpg"
+                mediaImg.src = mediaSrc+"img/start.jpg"
 
                 if (basicReadQuestTime < 0) {
 
@@ -196,7 +199,7 @@ window.onload = (event) => {
 
                     if (question.media.toLowerCase().slice(-4) === ".jpg") {
 
-                        mediaImg.src = "https://www.w3schools.com/html/img_chania.jpg"
+                        mediaImg.src = mediaSrc + "img/" + question.media
 
                         //answer interval
                         let basicAnswerTime = 15;
@@ -233,7 +236,7 @@ window.onload = (event) => {
 
                         mediaImg.style.display = "none"
                         mediaVideo.style.display = "flex"
-                        mediaVideo.src = "static/video/" + question.media.replace("wmv", "mp4")
+                        mediaVideo.src = mediaSrc + "video/" + question.media.replace("wmv", "mp4")
                         mediaVideo.controlsList = "noplaybackrate nofullscreen";
                         mediaVideo.disablePictureInPicture = true;
                         mediaVideo.muted = true;
@@ -288,7 +291,7 @@ window.onload = (event) => {
 
                     } else if (question.media === "") {
 
-                        mediaImg.src = "https://www.w3schools.com/html/img_chania.jpg"
+                        mediaImg.src = mediaSrc + "img/no_media.jpg"
                     }
                 } else {
 
@@ -328,7 +331,7 @@ window.onload = (event) => {
                 mediaVideo.pause()
                 mediaVideo.currentTime = 0;
                 mediaImg.style.display = "flex"
-                mediaImg.src = "https://www.w3schools.com/html/img_chania.jpg"
+                mediaImg.src = mediaSrc + "img/start.jpg"
                 mediaVideo.style.display = "none"
                 playingVideoInfo.innerHTML = ""
                 readTimeProgressBar.style.display = "flex"
@@ -378,7 +381,7 @@ window.onload = (event) => {
                     if (question.type === "PODSTAWOWY") {
                         basicQuestCount++;
 
-                        skipReading.style.display = "flex"
+                        skipReading.style.display = "block"
                         readTimeBar.style.width = "80%"
 
                         skipReading.addEventListener("click", () => {
@@ -399,7 +402,7 @@ window.onload = (event) => {
 
                                 if (question.media.toLowerCase().slice(-4) === ".jpg") {
 
-                                    mediaImg.src = "https://www.w3schools.com/html/img_chania.jpg"
+                                    mediaImg.src = mediaSrc + "img/" + question.media
 
                                     //answer interval
                                     let basicAnswerTime = 15;
@@ -441,7 +444,7 @@ window.onload = (event) => {
                                     mediaImg.style.display = "none"
 
                                     mediaVideo.style.display = "flex"
-                                    mediaVideo.src = "https://www.w3schools.com/html/img_chania.jpg"
+                                    mediaVideo.src = mediaSrc + "video/" + question.media.replace("wmv", "mp4")
                                     mediaVideo.controlsList = "noplaybackrate nofullscreen";
                                     mediaVideo.disablePictureInPicture = true;
                                     mediaVideo.muted = true;
@@ -511,9 +514,9 @@ window.onload = (event) => {
                         readTimeBar.style.width = "100%"
 
                         if (question.media === "") {
-                            mediaImg.src = "https://www.w3schools.com/html/img_chania.jpg"
+                            mediaImg.src = mediaSrc + "img/no_media.jpg"
                         } else {
-                            mediaImg.src = "https://www.w3schools.com/html/img_chania.jpg"
+                            mediaImg.src = mediaSrc + "img/" + question.media
                         }
 
                         let specQuestTime = 50;

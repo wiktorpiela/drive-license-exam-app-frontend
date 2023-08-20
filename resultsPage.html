@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="queries.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/resultsPage.css">
+    <link rel="stylesheet" href="styles/queries/resutlsPageQueries.css">
     <title>Wynik egzaminu</title>
 </head>
 <body>
@@ -40,18 +44,50 @@
                 </div>
         
             </div>
-    
+
+            <div class="summary-info-popup" id="popupResults">
+
+                <div class="exam-result">
+                    <p>Liczba uzyskanych punktów:</p>
+                    <p class="score2"></p>
+                </div>
+        
+                <div class="exam-result">
+                    <p>Wynik egzaminu:</p>
+                    <p class="exam-result-verbatim2"></p>
+                </div>
+        
+                <div class="exam-result">
+                    <p>Liczba poprawnych odpowiedzi:</p>
+                    <p class="correct-count-verbatim2"></p>
+                </div>
+        
+                <div class="exam-result">
+                    <p>Liczba błędnych odpowiedzi:</p>
+                    <p class="wrong-count-verbatim2"></p>
+                </div>
+        
+                <div class="exam-result">
+                    <p>Liczba pominiętych odpowiedzi:</p>
+                    <p class="skip-count-verbatim2"></p>
+                </div>
+
+                <button class="btn" type="button" onclick="closePopupResults()">Zamknij</button>
+
+            </div>
+
             <div class="summary-boxes-btns">
                 <div class="summary-boxes" onmousedown="return false" onselectstart="return false"></div>
                 <div class="exam-header">
                     <button class="btn exit-btn">Wyjdź</button>
                     <button class="btn try-again-btn">Spróbuj ponownie</button>
+                    <button class="btn display-summary-info-btn" onclick="displayPopupResults()">Pokaż wynik</button>
                 </div>
             </div>
         
         </div>
     
-        <div class="exam-header dynamic-div-question-content">
+        <div class="dynamic-div-question-content">
     
             <div class="result-left">
                 <img src="" class="question-media-img-result">
@@ -85,13 +121,17 @@
                     </div>
                 </div>
 
-                <div class="summary-info lgl-scource-div">
-                    <!-- 45% -->
-                    <p>Podstawa prawna</p>
-                    <p class="question-content-quest-lglsource"></p>
+                <div class="lgl-div">
+                    <button class="btn lgl-info" onclick="openLglPopup()">
+                        Podstawa prawna
+                    </button>
                 </div>
 
-  
+                <div class="lgl-info-popup" id="lglPopup">
+                    <p class="lgl-info-txt"></p>
+                    <button class="btn" type="button" onclick="closeLglPopup()">Zamknij</button>
+                </div>
+
             </div>
 
         </div>
@@ -100,6 +140,8 @@
 
 
 
-    <script src="resultsPageScript.js"></script>
+    <script src="scripts/resultsPageScript.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

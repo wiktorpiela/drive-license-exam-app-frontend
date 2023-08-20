@@ -4,21 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Egzamin teretyczny na prawo jazdy</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="queries.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/homePage.css">
+    <link rel="stylesheet" href="styles/queries/homePageQueries.css">
 </head>
 <body>
     <div class="row">
 
         <div class="home-page-header">
-            <h1>Rozwiąż darmowy egzamin na prawo jazdy dowolnej kategorii</h1>
+            <h1>Egzamin teoretyczny na prawo jazdy</h1>
             <h1>Pełna baza pytań pochodzi z oficjalnej strony <a href="https://www.gov.pl/web/infrastruktura/prawo-jazdy" target="_blank">Ministerstwa Infrastruktury</a></h1>
         </div>
 
-        <div class="exam-header home-page-btns">
-            <button onclick="openInfoPopup()" class="btn exam-mode"><ion-icon name="reader-outline"></ion-icon>Egzamin teoretyczny</button>
-            <button onclick="openInfoPopup()" class="btn learning-mode"><ion-icon name="extension-puzzle-outline"></ion-icon>Tryb nauki</button>
+        <div class="home-page-btns">
+            <button onclick="openInfoPopup()" class="btn exam-mode"><ion-icon name="reader-outline"></ion-icon>Egzamin</button>
+            <button onclick="openInfoPopup()" class="btn learning-mode" disabled><ion-icon name="extension-puzzle-outline"></ion-icon>Tryb nauki</button>
         </div>
+
+        <footer>
+            <div class="footer-content">
+                <p><ion-icon name="logo-github"></ion-icon><a href="https://github.com/wiktorpiela" target="_blank">Github repo</a></p>
+                <p><ion-icon name="mail-outline"></ion-icon><a href="mailto:wpiela9@gmail.com">Contact me</a></p>
+                <p><ion-icon name="logo-linkedin"></ion-icon><a href="https://www.linkedin.com/in/wiktor-p-44347b207/?originalSubdomain=pl" target="_blank">LinkedIn</a></p>
+            </div>
+        </footer>
 
     
         <div class="popup-info">
@@ -64,14 +76,14 @@
                 <option value="B">B</option>
             </select>
 
-            <div class="exam-header">
+            <div class="popup-btns">
                 <button class="confirm-start-exam btn">Rozpocznij</button>
-                <button onclick="closeInfoPopup()" class="btn">Wyjdź</button>
+                <button onclick="closeInfoPopup()" class="btn close-popup">Wyjdź</button>
             </div>
         </div>
     </div>
 
-    <script src="homePageScript.js"></script>
+    <script src="scripts/homePageScript.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
