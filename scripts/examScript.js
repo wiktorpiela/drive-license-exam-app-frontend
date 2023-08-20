@@ -27,7 +27,8 @@ let answersResponse
 let answers
 
 //media source path
-const mediaSrc = "https://res.cloudinary.com/dzblavrli/image/upload/drivelicense/"
+const mediaSrcImg = "https://res.cloudinary.com/dzblavrli/image/upload/drivelicense/"
+const mediaSrcVid = "https://res.cloudinary.com/dzblavrli/video/upload/drivelicense/"
 
 //jeżeli nie ma danych
 if (categoryName === null) {
@@ -122,7 +123,7 @@ closeExamConfirm.addEventListener("click", () => {
 window.onload = (event) => {
 
     //display defualt picture at the beginning
-    mediaImg.src = mediaSrc + "img/start.jpg"
+    mediaImg.src = mediaSrcImg + "img/start.jpg"
 
     getQuestions(examUrl)
         .then((data) => {
@@ -186,7 +187,7 @@ window.onload = (event) => {
                 basicReadQuestTime--;
                 let progressWidth = basicReadQuestTime / 20 * 100
 
-                mediaImg.src = mediaSrc+"img/start.jpg"
+                mediaImg.src = mediaSrcImg+"img/start.jpg"
 
                 if (basicReadQuestTime < 0) {
 
@@ -199,7 +200,7 @@ window.onload = (event) => {
 
                     if (question.media.toLowerCase().slice(-4) === ".jpg") {
 
-                        mediaImg.src = mediaSrc + "img/" + question.media
+                        mediaImg.src = mediaSrcImg + "img/" + question.media
 
                         //answer interval
                         let basicAnswerTime = 15;
@@ -236,10 +237,11 @@ window.onload = (event) => {
 
                         mediaImg.style.display = "none"
                         mediaVideo.style.display = "flex"
-                        mediaVideo.src = mediaSrc + "video/" + question.media.replace("wmv", "mp4")
-                        mediaVideo.controlsList = "noplaybackrate nofullscreen";
+                        mediaVideo.src = mediaSrcVid + "video/" + question.media.replace("wmv", "mp4")
+                        mediaVideo.controlsList = "noplaybackrate nofullscreen nodownload";
                         mediaVideo.disablePictureInPicture = true;
                         mediaVideo.muted = true;
+                        mediaVideo.crossOrigin = "anonymous"
                         mediaVideo.play()
 
                         readTimeBar.style.display = "flex"
@@ -291,7 +293,7 @@ window.onload = (event) => {
 
                     } else if (question.media === "") {
 
-                        mediaImg.src = mediaSrc + "img/no_media.jpg"
+                        mediaImg.src = mediaSrcImg + "img/no_media.jpg"
                     }
                 } else {
 
@@ -328,20 +330,13 @@ window.onload = (event) => {
                 // console.log("previously correct: " + correctAnswer)
                 // console.log(correctAnswer === userAnswer)
 
-                mediaVideo.pause()
-                mediaVideo.currentTime = 0;
-                mediaImg.style.display = "flex"
-                mediaImg.src = mediaSrc + "img/start.jpg"
-                mediaVideo.style.display = "none"
-                playingVideoInfo.innerHTML = ""
-                readTimeProgressBar.style.display = "flex"
-
                 //clear spec interval value
                 clearInterval(specCounter)
                 clearInterval(basicCounterReadQuest)
                 clearInterval(basicCounterAnswer)
 
                 console.log(summaryQuestions)
+                console.log(question.media)
 
                 question.userAnswer = userAnswer
                 //add scores in case of correct answer
@@ -378,6 +373,18 @@ window.onload = (event) => {
                     correctAnswer = question.quest_correct_answer
                     questionScore = question.score
 
+                    mediaVideo.pause()
+                    mediaVideo.currentTime = 0;
+                    mediaImg.style.display = "flex"
+
+                    if(question.type === "PODSTAWOWY"){
+                        mediaImg.src = mediaSrcImg + "img/start.jpg"
+                    }
+                    
+                    mediaVideo.style.display = "none"
+                    playingVideoInfo.innerHTML = ""
+                    readTimeProgressBar.style.display = "flex"
+
                     if (question.type === "PODSTAWOWY") {
                         basicQuestCount++;
 
@@ -402,7 +409,7 @@ window.onload = (event) => {
 
                                 if (question.media.toLowerCase().slice(-4) === ".jpg") {
 
-                                    mediaImg.src = mediaSrc + "img/" + question.media
+                                    mediaImg.src = mediaSrcImg + "img/" + question.media
 
                                     //answer interval
                                     let basicAnswerTime = 15;
@@ -444,10 +451,11 @@ window.onload = (event) => {
                                     mediaImg.style.display = "none"
 
                                     mediaVideo.style.display = "flex"
-                                    mediaVideo.src = mediaSrc + "video/" + question.media.replace("wmv", "mp4")
-                                    mediaVideo.controlsList = "noplaybackrate nofullscreen";
+                                    mediaVideo.src = mediaSrcVid + "video/" + question.media.replace("wmv", "mp4")
+                                    mediaVideo.controlsList = "noplaybackrate nofullscreen nodownload";
                                     mediaVideo.disablePictureInPicture = true;
                                     mediaVideo.muted = true;
+                                    mediaVideo.crossOrigin = "anonymous"
                                     mediaVideo.play()
 
                                     readTimeBar.style.display = "flex"
@@ -514,9 +522,9 @@ window.onload = (event) => {
                         readTimeBar.style.width = "100%"
 
                         if (question.media === "") {
-                            mediaImg.src = mediaSrc + "img/no_media.jpg"
+                            mediaImg.src = mediaSrcImg + "img/no_media.jpg"
                         } else {
-                            mediaImg.src = mediaSrc + "img/" + question.media
+                            mediaImg.src = mediaSrcImg + "img/" + question.media
                         }
 
                         let specQuestTime = 50;
