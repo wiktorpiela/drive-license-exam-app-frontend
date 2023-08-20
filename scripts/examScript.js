@@ -1,5 +1,5 @@
 const categoryName = sessionStorage.getItem("categoryName");
-const examUrl = `http://127.0.0.1:8000/exam-questions/${categoryName}`
+const examUrl = `https://drive-license-exam-app.up.railway.app/exam-questions/${categoryName}`
 const nextQuestion = document.querySelector(".next-question")
 const skipReading = document.querySelector(".skip-reading")
 const closeExamConfirm = document.querySelector(".close-exam-confirm")
