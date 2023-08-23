@@ -30,6 +30,9 @@ const examTryAgain = document.querySelector(".try-again-btn")
 //popup elements ----
 const popupModal = document.getElementById("popupResults")
 
+//placeholder info 
+const placeholderInfo = document.querySelector(".placeholder-info")
+
 function displayPopupResults(){
     popupModal.classList.add("display-results-popup")
 }
