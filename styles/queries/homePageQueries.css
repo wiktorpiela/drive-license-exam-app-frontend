@@ -89,6 +89,14 @@
 }
 
 @media only screen and (max-width: 415px){
+    .popup-info p,
+    .popup-info ul{
+        display: none;
+    }
+
+    .popup-info a{
+        text-align: center;
+    }
 
     .popup-info button{
         width: 12rem;
