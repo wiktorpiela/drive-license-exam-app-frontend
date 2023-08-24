@@ -57,6 +57,9 @@ function createSummaryBoxes(parentDiv, questObject, i) {
     //on click show question details
     box.addEventListener("click", () => {
 
+        //hide placeholder info firstly
+        placeholderInfo.style.display = "none"
+
         //clear answer class list
         A.classList.remove("sb-green")
         A.classList.remove("sb-red")
