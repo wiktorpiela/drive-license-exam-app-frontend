@@ -1,5 +1,5 @@
 const registerBtn = document.querySelector(".btnJS")
-const createUserUrl = "http://127.0.0.1:8000/accounts/register-user/"
+const createUserUrl = "https://drive-license-exam-app.up.railway.app/accounts/register-user/"
 const postRegisterFailed = document.querySelector(".register-failed");
 
 const registerUser = async (email, password, url) => {
