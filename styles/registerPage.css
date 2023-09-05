@@ -23,6 +23,7 @@
     margin: 0 auto;
     box-shadow: 2px 2px 2px 1px #777;
     margin-top: 10rem;
+    border-radius: 0.3rem;
 }
 
 .above p{
@@ -60,7 +61,33 @@
     text-decoration: none;
     font-size: 1.5rem;
     color: black;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1rem;
 }
 
+/* post-registration status */
+.register-success{
+    display: none;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 6rem;
+    background-color: #d4edda;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 6rem auto;
+    
+}
+
+.register-failed{
+    display: none;
+    background-color: #f8d7da;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 6rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 6rem auto;
+}
 
 
